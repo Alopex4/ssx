@@ -9,8 +9,8 @@ import (
 
 	"github.com/fatih/color"
 
-	"github.com/vimiix/ssx/cmd/ssx/cmd"
-	"github.com/vimiix/ssx/internal/cleaner"
+	"vimiix/ssx/cmd/ssx/cmd"
+	"vimiix/ssx/internal/cleaner"
 )
 
 func main() {
