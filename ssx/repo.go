@@ -1,8 +1,11 @@
 package ssx
 
 import (
-	"github.com/vimiix/ssx/ssx/bbolt"
-	"github.com/vimiix/ssx/ssx/entry"
+	//"github.com/vimiix/ssx/ssx/bbolt"
+	//"github.com/vimiix/ssx/ssx/entry"
+
+	"ssx/ssx/bbolt"
+	"ssx/ssx/entry"
 )
 
 // Repo define a KV store interface

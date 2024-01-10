@@ -16,14 +16,14 @@ import (
 	"github.com/manifoldco/promptui"
 	"github.com/pkg/errors"
 
-	"github.com/vimiix/ssx/internal/errmsg"
-	"github.com/vimiix/ssx/internal/lg"
-	"github.com/vimiix/ssx/internal/slice"
-	"github.com/vimiix/ssx/internal/tui"
-	"github.com/vimiix/ssx/internal/utils"
-	"github.com/vimiix/ssx/ssx/bbolt"
-	"github.com/vimiix/ssx/ssx/entry"
-	"github.com/vimiix/ssx/ssx/env"
+	"ssx/internal/errmsg"
+	"ssx/internal/lg"
+	"ssx/internal/slice"
+	"ssx/internal/tui"
+	"ssx/internal/utils"
+	"ssx/ssx/bbolt"
+	"ssx/ssx/entry"
+	"ssx/ssx/env"
 )
 
 type CmdOption struct {
@@ -59,6 +59,7 @@ type SSX struct {
 	sshEntryMap map[string]*entry.Entry
 }
 
+// NewSSX 工厂函数
 func NewSSX(opt *CmdOption) (*SSX, error) {
 	if err := opt.Tidy(); err != nil {
 		return nil, err

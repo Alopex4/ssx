@@ -6,15 +6,16 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/vimiix/ssx/internal/lg"
-	"github.com/vimiix/ssx/ssx"
-	"github.com/vimiix/ssx/ssx/version"
+	"ssx/internal/lg"
+	"ssx/ssx"
+	"ssx/ssx/version"
 )
 
 var (
 	logVerbose   bool
 	printVersion bool
-	ssxInst      *ssx.SSX
+	// ssx Instance 核心结构体
+	ssxInst *ssx.SSX
 )
 
 func NewRoot() *cobra.Command {
@@ -29,9 +30,11 @@ ssx [-i ENTRY_ID] [-s [USER@]HOST[:PORT]] [-k IDENTITY_FILE] [-t TAG_NAME]`,
 		DisableAutoGenTag:  true,
 		DisableSuggestions: true,
 		Args:               cobra.ArbitraryArgs, // accept arbitrary args for supporting quick login
+		// 程序运行前执行，确认是否需要追加log(verbose)，是否需要打印版本信息 (version)
 		PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 			lg.SetVerbose(logVerbose)
 			if !printVersion {
+				// 使用工厂函数创建ssx, 将其赋值给SSX对象
 				s, err := ssx.NewSSX(opt)
 				if err != nil {
 					return err
@@ -40,6 +43,7 @@ ssx [-i ENTRY_ID] [-s [USER@]HOST[:PORT]] [-k IDENTITY_FILE] [-t TAG_NAME]`,
 			}
 			return nil
 		},
+		// 程序真正执行，返回值值为Error
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if printVersion {
 				fmt.Fprintln(os.Stdout, version.Detail())
@@ -49,6 +53,7 @@ ssx [-i ENTRY_ID] [-s [USER@]HOST[:PORT]] [-k IDENTITY_FILE] [-t TAG_NAME]`,
 				// just use first word as search key
 				opt.Keyword = args[0]
 			}
+			// 内部应用启动入口
 			return ssxInst.Main(cmd.Context())
 		},
 	}

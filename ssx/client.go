@@ -14,9 +14,12 @@ import (
 
 	"github.com/containerd/console"
 
-	"github.com/vimiix/ssx/internal/lg"
-	"github.com/vimiix/ssx/internal/terminal"
-	"github.com/vimiix/ssx/ssx/entry"
+	"ssx/internal/lg"
+	"ssx/internal/terminal"
+	"ssx/ssx/entry"
+	//"github.com/vimiix/ssx/internal/lg"
+	//"github.com/vimiix/ssx/internal/terminal"
+	//"github.com/vimiix/ssx/ssx/entry"
 )
 
 type Client struct {

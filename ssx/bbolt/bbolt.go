@@ -7,9 +7,12 @@ import (
 
 	"go.etcd.io/bbolt"
 
-	"github.com/vimiix/ssx/internal/errmsg"
-	"github.com/vimiix/ssx/internal/lg"
-	"github.com/vimiix/ssx/ssx/entry"
+	"ssx/internal/errmsg"
+	"ssx/internal/lg"
+	"ssx/ssx/entry"
+	//"github.com/vimiix/ssx/internal/errmsg"
+	//"github.com/vimiix/ssx/internal/lg"
+	//"github.com/vimiix/ssx/ssx/entry"
 )
 
 // itob returns an 8-byte big endian representation of v.
