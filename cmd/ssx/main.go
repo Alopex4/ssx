@@ -12,7 +12,7 @@ import (
 	//"github.com/vimiix/ssx/cmd/ssx/cmd"
 	"ssx/cmd/ssx/cmd"
 	//"github.com/vimiix/ssx/internal/cleaner"
-	"ssx/internal/cleaner"
+	"ssx/ssx/cleaner"
 )
 
 func main() {
